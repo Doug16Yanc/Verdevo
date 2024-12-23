@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.example.verdevo"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.verdevo"
@@ -53,7 +53,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     testImplementation(libs.junit)
     implementation(libs.firebase.bom)
-    implementation(libs.firebase.analytics)
+    implementation(libs.google.firebase.analytics)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))

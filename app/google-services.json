@@ -1,1 +1,29 @@
-
+{
+  "project_info": {
+    "project_number": "929353630024",
+    "project_id": "verdevo",
+    "storage_bucket": "verdevo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929353630024:android:3f427880804e609b42737d",
+        "android_client_info": {
+          "package_name": "verdevo.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkTyZ0KfwlzLWQppZ8cyHVrWGOhzAWs7Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

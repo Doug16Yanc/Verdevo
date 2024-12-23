@@ -21,17 +21,17 @@ val Typography = Typography(
     headlineLarge = TextStyle(
         fontFamily = if (activatePreview) FontFamily.Default else livvicFontFamily,
         fontWeight = FontWeight.Bold,
-        fontSize = 25.sp,
+        fontSize = 55.sp,
     ),
     headlineMedium = TextStyle(
         fontFamily = if (activatePreview) FontFamily.Default else livvicFontFamily,
         fontWeight = FontWeight.Bold,
-        fontSize = 20.sp
+        fontSize = 30.sp
     ),
     headlineSmall = TextStyle(
         fontFamily = if (activatePreview) FontFamily.Default else livvicFontFamily,
         fontWeight = FontWeight.Bold,
-        fontSize = 16.sp
+        fontSize = 22.sp
     ),
     titleLarge = TextStyle(
         fontFamily = if (activatePreview) FontFamily.Default else livvicFontFamily,
@@ -41,7 +41,7 @@ val Typography = Typography(
     bodyLarge = TextStyle(
         fontFamily = if (activatePreview) FontFamily.Default else livvicFontFamily,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
+        fontSize = 20.sp
     ),
     bodyMedium = TextStyle(
         fontFamily = if (activatePreview) FontFamily.Default else livvicFontFamily,

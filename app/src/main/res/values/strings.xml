@@ -2,4 +2,14 @@
     <string name="app_name">Verdevo</string>
     <string name="title_activity_base">BaseActivity</string>
     <string name="title_activity_intro">IntroActivity</string>
+    <string name="name_app">Verdevo</string>
+    <string name="first_introduction">Eficiência energética</string>
+    <string name="first_first_introduction">na via móvel e remota</string>
+    <string name="second_introduction">Tenha o controle da eficiência
+                                    energética dos seus materiais na
+                                    palma da sua mão com nossa
+                                    solução tecnológica para ciência e
+                                    engenharia dos materiais eficientes
+                                    e ecologicamente amigáveis.</string>
+    <string name="start">Iniciar</string>
 </resources>
