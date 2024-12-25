@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:929353630024:android:3f427880804e609b42737d",
         "android_client_info": {
-          "package_name": "verdevo.app"
+          "package_name": "com.example.verdevo"
         }
       },
       "oauth_client": [],
