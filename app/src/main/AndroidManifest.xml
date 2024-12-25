@@ -15,15 +15,15 @@
         android:theme="@style/Theme.Verdevo"
         tools:targetApi="31">
         <activity
-            android:name=".activity.IntroActivity"
+            android:name=".activity.MainActivity"
             android:exported="false"
             android:label="@string/title_activity_intro"
-            android:theme="@style/Theme.Verdevo" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.IntroActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Verdevo">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

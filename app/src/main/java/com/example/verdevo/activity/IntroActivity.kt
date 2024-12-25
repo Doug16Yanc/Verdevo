@@ -89,7 +89,7 @@ private fun IntroScreen(modifier: Modifier = Modifier, onClick : () -> Unit) {
                 VerdevoButton(modifier = modifier.widthIn(320.dp)
                     .padding(top = 35.dp, start = 45.dp),
                     text = stringResource(R.string.start),
-                    onClick = {})
+                    onClick = {onClick()})
         }
     }
 }
