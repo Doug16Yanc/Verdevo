@@ -1,6 +1,7 @@
 package com.example.verdevo.activity
 
 import VerdevoButton
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -41,6 +42,11 @@ class IntroActivity : BaseActivity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
         setContent {
+            IntroScreen(onClick = {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            })
         }
     }
 }
