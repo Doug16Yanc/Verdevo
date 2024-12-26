@@ -12,4 +12,5 @@
                                     engenharia dos materiais eficientes
                                     e ecologicamente amigáveis.</string>
     <string name="start">Iniciar</string>
+    <string name="title_activity_list_type">ListTypeActivity</string>
 </resources>

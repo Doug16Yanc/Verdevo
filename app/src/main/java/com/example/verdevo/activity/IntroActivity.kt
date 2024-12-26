@@ -29,9 +29,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.verdevo.R
+import com.example.verdevo.ui.theme.Black
 import com.example.verdevo.ui.theme.Green
 import com.example.verdevo.ui.theme.Typography
 
@@ -72,19 +76,34 @@ private fun IntroScreen(modifier: Modifier = Modifier, onClick : () -> Unit) {
 
             Spacer(modifier = modifier.height(5.dp))
 
-            Text(modifier = modifier.padding(top = 300.dp, start = 100.dp),
-                text = "Verdevo", style = Typography.headlineLarge, color = Color.White)
+            Text(modifier = modifier.padding(top = 300.dp, start = 70.dp),
+                text = "Verdevo",
+                fontSize = 65.sp,
+                fontFamily = FontFamily(Font(R.font.livvic_bold)),
+                color = Color.White
+                )
 
         }
 
         Column(modifier = modifier.fillMaxSize()
             .padding(10.dp)) {
                 Text(modifier = modifier.padding(top = 10.dp, start = 42.dp, end = 10.dp),
-                    text = stringResource(R.string.first_introduction), style = Typography.headlineMedium, color = Color.Black)
+                    text = stringResource(R.string.first_introduction),
+                    fontFamily = FontFamily(Font(R.font.livvic_bold)),
+                    fontSize = 30.sp,
+                    color = Black)
                 Text(modifier = modifier.padding(start = 32.dp, end = 10.dp),
-                    text = stringResource(R.string.first_first_introduction), style = Typography.headlineMedium, color = Color.Black)
+                    text = stringResource(R.string.first_first_introduction),
+                    fontFamily = FontFamily(Font(R.font.livvic_bold)),
+                    fontSize = 30.sp,
+                    color = Black
+                    )
                 Text(modifier = modifier.padding(top = 10.dp, start = 22.dp, end = 10.dp),
-                    text = stringResource(R.string.second_introduction), style = Typography.bodyLarge, color = Color.Black)
+                    text = stringResource(R.string.second_introduction),
+                    fontFamily = FontFamily(Font(R.font.livvic_medium)),
+                    fontSize = 20.sp,
+                    color = Black
+                    )
 
                 VerdevoButton(modifier = modifier.widthIn(320.dp)
                     .padding(top = 35.dp, start = 45.dp),

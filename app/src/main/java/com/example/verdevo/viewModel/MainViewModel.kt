@@ -47,7 +47,7 @@ class MainViewModel() : ViewModel() {
         })
     }
     fun loadTypes() {
-        val Reference = firebaseDatabase.getReference("Type")
+        val Reference = firebaseDatabase.getReference("Types")
         Reference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val lists = mutableListOf<Type>()
