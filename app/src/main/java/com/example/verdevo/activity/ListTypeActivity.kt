@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -67,11 +68,12 @@ fun ListTypeScreen(modifier: Modifier = Modifier,
         viewModel.loadFiltered(id)
     }
 
-    Box(modifier = modifier.fillMaxWidth()
+    Box(modifier = modifier
         .padding(start = 20.dp, top = 2.dp)) {
         Image(painter = painterResource(R.drawable.back),
             contentDescription = null,
             modifier = modifier.clickable { onBackClick() }
+                .width(40.dp)
                 .padding(top = 12.dp))
     }
 

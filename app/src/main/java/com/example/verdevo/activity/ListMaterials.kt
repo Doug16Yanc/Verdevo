@@ -1,5 +1,6 @@
 package com.example.verdevo.activity
 
+import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -22,6 +23,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat.startActivity
 import coil.compose.AsyncImage
 import com.example.verdevo.R
 import com.example.verdevo.model.Material
@@ -54,16 +56,20 @@ fun TrendingMaterial(modifier: Modifier = Modifier, items : List<Material>, pos 
     Column(modifier = modifier
         .padding(11.dp)
         .height(160.dp)) {
-        AsyncImage(model = items[pos].picUrl.firstOrNull(), contentDescription = items[pos].name,
+        AsyncImage(model = items[pos].picUrl.first(), contentDescription = items[pos].name,
             modifier = modifier.width(180.dp)
                 .background(Gray,
                     shape = RoundedCornerShape(12.dp)
-                ).height(190.dp)
-                .padding(12.dp)
+                )
+                .height(180.dp)
+                .padding(20.dp)
                 .clickable {
-                    //val intent = Intent(context, )
+                    val intent = Intent(context, DetailMaterialActivity::class.java).apply {
+                        putExtra("object", items[pos])
+                    }
+                    startActivity(context, intent, null)
                 },
-            contentScale = ContentScale.Inside
+            contentScale = ContentScale.Crop
         )
 
         Text(text = items[pos].name,

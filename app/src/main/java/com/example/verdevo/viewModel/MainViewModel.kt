@@ -10,6 +10,7 @@ import com.example.verdevo.model.Type
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.Query
 import com.google.firebase.database.ValueEventListener
 
 class MainViewModel() : ViewModel() {
@@ -69,7 +70,25 @@ class MainViewModel() : ViewModel() {
         })
     }
     fun loadTrends() {
-        
+        val Reference = firebaseDatabase.getReference("Material")
+        val query : Query = Reference.orderByChild("showTrends").equalTo(true)
+        query.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val lists = mutableListOf<Material>()
+                for (childSnapshot in snapshot.children) {
+                    val list = childSnapshot.getValue(Material::class.java)
+                    if (list != null) {
+                        lists.add(list)
+                    }
+                }
+                _trends.value = lists
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("Firebase", "Erro na consulta : ${error.message}")
+            }
+
+        })
     }  
     
     fun loadFiltered(id : String) {
