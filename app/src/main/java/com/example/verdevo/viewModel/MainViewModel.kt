@@ -92,6 +92,25 @@ class MainViewModel() : ViewModel() {
     }  
     
     fun loadFiltered(id : String) {
+        val Reference = firebaseDatabase.getReference("Material")
+        val query : Query = Reference.orderByChild("typeId").equalTo(id)
+        query.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val lists = mutableListOf<Material>()
+                for (childSnapshot in snapshot.children) {
+                    val list = childSnapshot.getValue(Material::class.java)
+                    if (list != null) {
+                        lists.add(list)
+                    }
+                }
+                _trends.value = lists
+            }
 
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("Firebase", "Erro na consulta : ${error.message}")
+            }
+
+        }
+        )
     }
 }

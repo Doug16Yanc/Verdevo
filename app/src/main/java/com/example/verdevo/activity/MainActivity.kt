@@ -166,7 +166,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
                     }
                 }
                 else {
-                    ListMaterials(modifier, trends)
+                    ListMaterials(trends)
                 }
             }
         }

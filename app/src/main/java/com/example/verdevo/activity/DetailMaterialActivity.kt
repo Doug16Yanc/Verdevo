@@ -47,59 +47,71 @@ class DetailMaterialActivity : ComponentActivity() {
 
         super.onCreate(savedInstanceState)
         setContent {
-            DetailMaterialScreen(modifier = Modifier, material, onBackClick = {finish()}
+            DetailMaterialScreen(material, onBackClick = {finish()}
                 )
         }
     }
 }
 
 @Composable
-fun DetailMaterialScreen(modifier: Modifier = Modifier,
-                         material: Material,
+fun DetailMaterialScreen(
+    material: Material,
                          onBackClick : () -> Unit) {
     val selectedImageUrl by remember { mutableStateOf(material.picUrl.first()) }
     var selectedModelIndex by remember { mutableIntStateOf(-1) }
 
-    Column(modifier = modifier.fillMaxSize()
+    Column(modifier = Modifier.fillMaxSize()
         .background(White)
         .verticalScroll(rememberScrollState())
         .padding(20.dp)
     ) {
-        ConstraintLayout(modifier = modifier.padding(top = 25.dp, bottom = 17.dp)
-            .fillMaxWidth()) {
-                val (back) = createRefs()
-                Image(painter = painterResource(R.drawable.back),
-                    contentDescription = "Imagem de retorno",
-                    modifier = modifier.clickable { onBackClick()}
-                        .constrainAs(back) {
-                            top.linkTo(parent.top)
-                            bottom.linkTo(parent.bottom)
-                                start.linkTo(parent.start)
-                        })
-            Image(painter = rememberAsyncImagePainter(model = selectedImageUrl),
+        ConstraintLayout(
+            modifier = Modifier.padding(top = 25.dp, bottom = 17.dp)
+                .fillMaxWidth()
+        ) {
+            val (back) = createRefs()
+            Image(painter = painterResource(R.drawable.back),
+                contentDescription = "Imagem de retorno",
+                modifier = Modifier.clickable { onBackClick() }
+                    .constrainAs(back) {
+                        top.linkTo(parent.top)
+                        bottom.linkTo(parent.bottom)
+                        start.linkTo(parent.start)
+                    })
+            Image(
+                painter = rememberAsyncImagePainter(model = selectedImageUrl),
                 contentDescription = "Imagem selecionada",
-                modifier = modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth()
                     .height(250.dp)
-                    .background(Gray,
-                        shape = RoundedCornerShape(12.dp))
-                .padding(22.dp))
+                    .background(
+                        Gray,
+                        shape = RoundedCornerShape(12.dp)
+                    )
+                    .padding(22.dp)
+            )
         }
-        Row(verticalAlignment = Alignment.CenterVertically,
-            modifier = modifier.padding(top = 16.dp)) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(top = 16.dp)
+        ) {
             Text(
                 text = material.name,
                 fontSize = 30.sp,
                 fontFamily = FontFamily(Font(R.font.livvic_bold)),
                 color = Black,
-                modifier = modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth()
                     .weight(2f)
                     .padding(end = 22.dp)
             )
         }
-        Text(text = material.description, fontSize = 17.sp, color = Black,
-            modifier = modifier.padding(vertical = 19.dp))
-        Row(verticalAlignment = Alignment.CenterVertically,
-            modifier = modifier.fillMaxWidth()) {
+        Text(
+            text = material.description, fontSize = 17.sp, color = Black,
+            modifier = Modifier.padding(vertical = 19.dp)
+        )
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
+        ) {
         }
     }
 }

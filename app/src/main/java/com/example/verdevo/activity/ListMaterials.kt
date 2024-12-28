@@ -31,19 +31,19 @@ import com.example.verdevo.ui.theme.Black
 import com.example.verdevo.ui.theme.Gray
 
 @Composable
-fun ListMaterials(modifier: Modifier = Modifier, items : List<Material>) {
+fun ListMaterials(items : List<Material>) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
-        modifier = modifier
-            .height(720.dp)
+        modifier = Modifier
+            .height(700.dp)
             .padding(start = 10.dp, end = 10.dp),
         verticalArrangement = Arrangement.spacedBy(3.dp),
         horizontalArrangement = Arrangement.spacedBy(17.dp)
     ) {
         items(items.size) { row ->
-            Row(modifier = modifier.fillMaxWidth(),
+            Row(modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                TrendingMaterial(modifier, items, row)
+                TrendingMaterial(items, row)
             }
 
         }
@@ -51,18 +51,18 @@ fun ListMaterials(modifier: Modifier = Modifier, items : List<Material>) {
 }
 
 @Composable
-fun TrendingMaterial(modifier: Modifier = Modifier, items : List<Material>, pos : Int) {
+fun TrendingMaterial(items : List<Material>, pos : Int) {
     val context = LocalContext.current
-    Column(modifier = modifier
+    Column(modifier = Modifier
         .padding(11.dp)
-        .height(160.dp)) {
+        .height(200.dp)) {
         AsyncImage(model = items[pos].picUrl.first(), contentDescription = items[pos].name,
-            modifier = modifier.width(180.dp)
+            modifier = Modifier.width(1860.dp)
                 .background(Gray,
                     shape = RoundedCornerShape(12.dp)
                 )
-                .height(180.dp)
-                .padding(20.dp)
+                .height(150.dp)
+                .padding(10.dp)
                 .clickable {
                     val intent = Intent(context, DetailMaterialActivity::class.java).apply {
                         putExtra("object", items[pos])
@@ -77,10 +77,10 @@ fun TrendingMaterial(modifier: Modifier = Modifier, items : List<Material>, pos 
             fontSize = 18.sp,
             fontFamily = FontFamily(Font(R.font.livvic_bold)),
             overflow = TextOverflow.Ellipsis,
-            modifier = modifier.padding(top = 11.dp)
+            modifier = Modifier.padding(top = 11.dp)
             )
 
-        Row(modifier = modifier.fillMaxWidth(),
+        Row(modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(10.dp)) {
         }
     }

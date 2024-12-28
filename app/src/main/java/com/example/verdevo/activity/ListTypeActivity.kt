@@ -31,6 +31,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.verdevo.R
+import com.example.verdevo.ui.theme.Black
 import com.example.verdevo.viewModel.MainViewModel
 
 class ListTypeActivity : ComponentActivity() {
@@ -38,15 +39,18 @@ class ListTypeActivity : ComponentActivity() {
     private val viewModel = MainViewModel()
     private var id : String = ""
     private var title : String = ""
+    private var description : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         id = intent.getStringExtra("id") ?:""
         title = intent.getStringExtra("title") ?:""
+        description = intent.getStringExtra("description") ?:""
 
         setContent {
             ListTypeScreen(title = title,
+                description = description,
                 onBackClick = {finish()},
                 viewModel = viewModel,
                 id = id)
@@ -55,8 +59,8 @@ class ListTypeActivity : ComponentActivity() {
 }
 
 @Composable
-fun ListTypeScreen(modifier: Modifier = Modifier,
-                   title : String,
+fun ListTypeScreen(title : String,
+                   description : String,
                    onBackClick : () -> Unit,
                    viewModel: MainViewModel,
                    id : String) {
@@ -68,17 +72,17 @@ fun ListTypeScreen(modifier: Modifier = Modifier,
         viewModel.loadFiltered(id)
     }
 
-    Box(modifier = modifier
+    Box(modifier = Modifier
         .padding(start = 20.dp, top = 2.dp)) {
         Image(painter = painterResource(R.drawable.back),
             contentDescription = null,
-            modifier = modifier.clickable { onBackClick() }
+            modifier = Modifier.clickable { onBackClick() }
                 .width(40.dp)
                 .padding(top = 12.dp))
     }
 
-    Column(modifier = modifier.fillMaxSize().padding(17.dp)) {
-        Text(modifier = modifier.fillMaxWidth()
+    Column(modifier = Modifier.fillMaxSize().padding(17.dp)) {
+        Text(modifier = Modifier.fillMaxWidth()
             .padding(top = 3.dp),
             textAlign = TextAlign.Center,
             fontFamily = FontFamily(Font(R.font.livvic_bold)),
@@ -87,16 +91,28 @@ fun ListTypeScreen(modifier: Modifier = Modifier,
             text = title
             )
 
-        Spacer(modifier = modifier.height(17.dp))
+        Spacer(modifier = Modifier.height(1.dp))
+
+        Column(modifier = Modifier.fillMaxWidth()
+            .padding(top = 10.dp)) {
+            Text(modifier = Modifier.padding(top = 6.dp),
+                textAlign = TextAlign.Center,
+                text = description,
+                fontFamily = FontFamily(Font(R.font.livvic_medium)),
+                fontSize = 16.sp,
+                color = Black
+                )
+        }
 
         if (isLoading) {
-            Box(modifier = modifier.fillMaxWidth(),
+            Box(modifier = Modifier.fillMaxWidth()
+                .padding(top = 30.dp),
                 contentAlignment = Alignment.Center) {
                 CircularProgressIndicator()
             }
         }
         else {
-            ListMaterials(modifier, items)
+            ListMaterials(items)
         }
     }
     LaunchedEffect(items) {
