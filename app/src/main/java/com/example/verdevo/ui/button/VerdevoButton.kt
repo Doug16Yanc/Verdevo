@@ -17,7 +17,6 @@ import androidx.compose.ui.unit.dp
 import com.example.verdevo.ui.theme.Green
 import com.example.verdevo.ui.theme.Typography
 
-
 @Composable
 fun VerdevoButton(
     modifier: Modifier = Modifier,

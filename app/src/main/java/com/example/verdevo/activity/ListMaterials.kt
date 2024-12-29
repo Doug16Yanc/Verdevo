@@ -16,6 +16,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.Font
@@ -28,7 +29,6 @@ import coil.compose.AsyncImage
 import com.example.verdevo.R
 import com.example.verdevo.model.Material
 import com.example.verdevo.ui.theme.Black
-import com.example.verdevo.ui.theme.Gray
 
 @Composable
 fun ListMaterials(items : List<Material>) {
@@ -37,7 +37,7 @@ fun ListMaterials(items : List<Material>) {
         modifier = Modifier
             .height(700.dp)
             .padding(start = 10.dp, end = 10.dp),
-        verticalArrangement = Arrangement.spacedBy(3.dp),
+        verticalArrangement = Arrangement.spacedBy(0.dp),
         horizontalArrangement = Arrangement.spacedBy(17.dp)
     ) {
         items(items.size) { row ->
@@ -45,7 +45,6 @@ fun ListMaterials(items : List<Material>) {
                 horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 TrendingMaterial(items, row)
             }
-
         }
     }
 }
@@ -56,9 +55,10 @@ fun TrendingMaterial(items : List<Material>, pos : Int) {
     Column(modifier = Modifier
         .padding(11.dp)
         .height(200.dp)) {
-        AsyncImage(model = items[pos].picUrl.first(), contentDescription = items[pos].name,
-            modifier = Modifier.width(1860.dp)
-                .background(Gray,
+        AsyncImage(model = items[pos].picUrl.firstOrNull(), contentDescription = items[pos].name,
+            modifier = Modifier.width(160.dp)
+                .background(
+                    Color.Gray,
                     shape = RoundedCornerShape(12.dp)
                 )
                 .height(150.dp)

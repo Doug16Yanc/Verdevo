@@ -285,6 +285,7 @@ fun Types(modifier: Modifier = Modifier, types : List<Type>) {
                         val intent = Intent(context, ListTypeActivity::class.java).apply {
                             putExtra("id", types[index].id.toString())
                             putExtra("title", types[index].title)
+                            putExtra("description", types[index].description)
                         }
                         startActivity(context, intent, null)
                     }, 100)

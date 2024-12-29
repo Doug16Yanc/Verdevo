@@ -14,4 +14,5 @@
     <string name="start">Iniciar</string>
     <string name="title_activity_list_type">ListTypeActivity</string>
     <string name="title_activity_detail_material">DetailMaterialActivity</string>
+    <string name="title_activity_measure">MeasureActivity</string>
 </resources>
