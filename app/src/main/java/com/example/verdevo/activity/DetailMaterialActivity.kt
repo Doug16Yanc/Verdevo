@@ -57,7 +57,7 @@ class DetailMaterialActivity : ComponentActivity() {
             DetailMaterialScreen(material, onBackClick = {finish()},
                 onMeasureClick = {
                     val intent = Intent(this, MeasureActivity::class.java).apply {
-                        putExtra("name", material.name)
+                        putExtra("object", material)
                     }
                     startActivity(intent)
                 }
@@ -78,12 +78,25 @@ fun DetailMaterialScreen(material: Material,  onBackClick : () -> Unit, onMeasur
             .verticalScroll(rememberScrollState())
             .padding(20.dp)
     ) {
-        Box(modifier = Modifier
-            .padding(start = 10.dp, top = 2.dp)) {
-            Image(painter = painterResource(R.drawable.back),
-                contentDescription = null,
-                modifier = Modifier.clickable { onBackClick() }
-                    .width(40.dp))
+        Row(modifier = Modifier.padding(top = 8.dp)) {
+            Box(
+                modifier = Modifier
+                    .padding(start = 10.dp, top = 2.dp)
+            ) {
+                Image(painter = painterResource(R.drawable.back),
+                    contentDescription = null,
+                    modifier = Modifier.clickable { onBackClick() }
+                        .width(40.dp))
+            }
+            Text(
+                text = material.name,
+                fontSize = 25.sp,
+                fontFamily = FontFamily(Font(R.font.livvic_bold)),
+                color = Black,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth()
+                    .padding(top = 10.dp)
+            )
         }
         Column(
             modifier = Modifier.padding(1.dp)
@@ -99,16 +112,6 @@ fun DetailMaterialScreen(material: Material,  onBackClick : () -> Unit, onMeasur
                         shape = RoundedCornerShape(12.dp)
                     )
                     .padding(top = 12.dp)
-            )
-
-            Text(
-                text = material.name,
-                fontSize = 25.sp,
-                fontFamily = FontFamily(Font(R.font.livvic_bold)),
-                color = Black,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth()
-                    .padding(top = 10.dp)
             )
         }
 
